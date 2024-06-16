@@ -10,9 +10,6 @@
 # 语言文件(可在plugins/Brewery/languages下找到)
 language: zh
 
-# Prefix used on messages
-pluginPrefix: '&2[Brewery]&f '
-
 # 喝高了的下线玩家会在家里醒来(需要/home等功能支持)[true]
 enableHome: true
 
@@ -38,7 +35,7 @@ enableKickOnOverdrink: false
 enablePuke: true
 
 # 呕吐物[Soul_Sand]
-pukeItem: [Soul_Sand]
+pukeItem: Soul_Sand
 
 # 呕吐物消失的时间, 单位为秒(MC默认为300 = 5分钟)[60]
 # 如果spigot.yml中的物品消失时间被变更, 此处也会变更.
@@ -54,7 +51,6 @@ showStatusOnDrink: true
 drainItems:
   - Bread/4
   - Milk_Bucket/2
-  - golden_apple/100
 
 # 当炼药锅有原料和热源时，在其上方显示颗粒效果 [true]
 # 颗粒颜色的变化可以帮助定时某些配方
@@ -70,10 +66,10 @@ enableSealingTable: true
 alwaysShowQuality: true
 
 # 始终显示物品的酒精含量。如果为false，则仅在酿造台显示 [false]
-alwaysShowAlc: true
+alwaysShowAlc: false
 
 # 是否要显示酿造饮料的人 [false]
-showBrewer: true
+showBrewer: false
 
 # MC自带的桶内可以存放多少饮品 [6]
 ageInMCBarrels: true
@@ -85,7 +81,7 @@ maxBrewsInMCBarrels: 6
 # 当在多个(BungeeCord)服务器上使用酿造物时，在下面的'multiServerDB'定义一个共享数据库
 # 所以，如果你想使配方作弊更加困难，请启用此选项，但不要通过世界下载、结构、或其他方式共享任何酿造物。 [false]
 enableEncode: false
-encodeKey: -3450855665921354716
+encodeKey: 0
 
 
 # 是否检查更新.[true]
