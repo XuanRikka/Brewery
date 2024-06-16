@@ -52,32 +52,34 @@ drainItems:
   - Bread/4
   - Milk_Bucket/2
 
-# Show Particles over Cauldrons when they have ingredients and a heat source. [true]
-# The changing color of the particles can help with timing some recipes
+# 当炼药锅有原料和热源时，在其上方显示颗粒效果 [true]
+# 颗粒颜色的变化可以帮助定时某些配方
 enableCauldronParticles: true
-# If Cauldron Particles should be reduced to the bare minimum [false]
+# 如果炼药锅颗粒效果应减少到最低限度 [false]
 minimalParticles: false
 
-# If crafting and using of the Brew Sealing Table is enabled (2 Bottles over 4 Planks) [true, true]
+# 如果启用酿造封口桌的制作和使用（2个瓶子放在4块木板上面） [true, true]
 craftSealingTable: true
 enableSealingTable: true
 
-# Always show the 1-5 stars on the item depending on the quality. If false, they will only appear when brewing [true]
+# 根据物品质量始终显示1-5颗星。如果为false，则仅在酿造时出现 [true]
 alwaysShowQuality: true
 
-# Always show the alcohol content on the item. If false, it will only show in the brewing stand [false]
+# 始终显示物品的酒精含量。如果为false，则仅在酿造台显示 [false]
 alwaysShowAlc: false
+
+# 是否要显示酿造饮料的人 [false]
+showBrewer: false
 
 # MC自带的桶内可以存放多少饮品 [6]
 ageInMCBarrels: true
 maxBrewsInMCBarrels: 6
 
-# The used Ingredients and other brewing-data is saved to all Brewery Items. To prevent
-# hacked clients from reading what exactly was used to brew an item, the data can be encoded/scrambled.
-# This is a fast process to stop players from hacking out recipes, once they get hold of a brew.
-# Only drawback: brew items can only be used on another server with the same encodeKey.
-# When using Brews on multiple (BungeeCord) Servers, define a shared Database below at 'multiServerDB'
-# So enable this if you want to make recipe cheating harder, but don't share any brews by world download, schematics, or other means. [false]
+# 使用的原料和其他酿造数据保存到所有酿酒物品中。为了防止
+# 外挂这是一个快速过程，以阻止玩家一旦获得酿造物就作弊配方，
+# 唯一的缺点：酿造物品只能在具有相同encodeKey的另一个服务器上使用。
+# 当在多个(BungeeCord)服务器上使用酿造物时，在下面的'multiServerDB'定义一个共享数据库
+# 所以，如果你想使配方作弊更加困难，请启用此选项，但不要通过世界下载、结构、或其他方式共享任何酿造物。 [false]
 enableEncode: false
 encodeKey: 0
 
@@ -96,26 +98,26 @@ version: '3.1'
 
 
 
-# -- Define custom items --
-# The defined id can then be used in recipes
+# -- 定义自定义物品 --
+# 定义的 id 可以在配方中使用
 
-#  matchAny: true if it is already enough if one of the info matches
-#  material: Which type the item has to be
-#  name: Which name the item has to be (Formatting codes possible: such as &6)
-#  lore: What has to be in the lore of the item
+#  matchAny: 如果设为 true，只要有一个条件匹配即认为匹配成功
+#  material: 物品的类型
+#  name: 物品的名称（可使用格式化代码，例如 &6）
+#  lore: 物品的附加说明
 
 customItems:
-  # Three Example Items
+  # 三个示例物品
   ex-item:
-    # A Barrier item called Wall and has the given line in its lore
+    # 一个名为 Wall 的 Barrier 物品，并具有指定的附加说明
     material: Barrier
     name: 'Wall'
     lore:
       - '&7Very well protected'
 
   ex-item2:
-    # Using matchAny only one of the following has to match.
-    # In this case on of the door types, or an item called Beechwood Door, or an item with 'A door' in its lore
+    # 使用 matchAny 时，只需满足以下条件之一即可。
+    # 在此情况下，可以是以下任意门类型之一，或名为 Beechwood Door 的物品，或附加说明中包含 'A door' 的物品
     matchAny: true
     material:
       - Acacia_Door
@@ -136,26 +138,26 @@ customItems:
       - blue_orchid
 
 
-# -- Ingredients in the Cauldron --
-# Which Ingredients are accepted by the Cauldron and the base potion resulting from them
-# You only need to add something here if you want to specify a custom name or color for the base potion
+# -- 炼药锅中的成分 --
+# 炼药锅接受的成分以及由其生成的基础药水
+# 只有当你想为基础药水指定自定义名称或颜色时才需要在这里添加内容
 
- # name: Name of the base potion coming out of the Cauldron (Formatting codes possible: such as &6)
- # ingredients: List of 'material/amount'
- #   With an item in your hand, use /brew ItemName to get its material for use in a recipe
- #   (Item-ids instead of material are not supported by bukkit anymore and will not work)
- #   A list of materials can be found here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
- # color: Color of the potion from a cauldron. Defaults to CYAN
- #   Usable Colors: DARK_RED, RED, BRIGHT_RED, ORANGE, YELLOW, PINK, PURPLE, BLUE, CYAN, WATER, TEAL, OLIVE, GREEN, LIME, BLACK, GREY, BRIGHT_GREY, WHITE
- #   Or RGB colors (hex: for example '99FF33') (with '') (search for "HTML color" on the internet)
+ # name: 炼药锅生成的基础药水名称（可使用格式化代码，例如 &6）
+ # ingredients: 成分列表，格式为 'material/amount'
+ #   手持物品时，使用 /brew ItemName 可以获取该物品的 material 用于配方
+ #   （Bukkit 已不再支持 item-id，因此不能使用）
+ #   可用的材料列表请参见：https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+ # color: 炼药锅生成药水的颜色，默认是 CYAN
+ #   可用颜色：DARK_RED, RED, BRIGHT_RED, ORANGE, YELLOW, PINK, PURPLE, BLUE, CYAN, WATER, TEAL, OLIVE, GREEN, LIME, BLACK, GREY, BRIGHT_GREY, WHITE
+ #   或 RGB 颜色（十六进制，例如 '99FF33'）(需用引号括起)（可在网上搜索 "HTML color" ）
  # cookParticles:
- #   Color of the Particles above the cauldron at different cooking-times
- #   Color and minute during which each color should appear, i.e. one color at 8 minutes fading to another at 18 minutes.
- #   As List, each Color as name or RGB, see above. Written as 'Color/Minute'
- #   It will fade to the last color in the end, if there is only one color in the list, it will fade to grey
- # lore: List of additional text on the base potion. (Formatting codes possible: such as &6)
- # customModelData: Custom Model Data Tag. This is a number that can be used to add custom textures to the item.
-
+ #   不同烹饪时间段内炼药锅上方粒子的颜色
+ #   每种颜色及其出现的分钟数作为列表，例如在8分钟时一种颜色逐渐变为18分钟时的另一种颜色。
+ #   颜色可用名称或 RGB 值，如上所述。格式为 'Color/Minute'
+ #   最后会逐渐变为列表中的最后一种颜色，如果列表中只有一种颜色，最终会变为灰色
+ # lore: 基础药水的附加说明列表（可使用格式化代码，例如 &6）
+ # customModelData: 自定义模型数据标签。可以用这个数字为物品添加自定义纹理。
+ 
 cauldron:
   # Example with all possible entries
   ex:
@@ -423,15 +425,16 @@ cauldron:
 #   也可以使用RGB颜色(十六进制, 如'99FF33', 必须包含两个单引号)(在线搜索"HTML 颜色"或者其他颜色库即刻获得你需要的颜色的十六进制表示)
 # difficulty: 酿制难度, 1 = 不需要非常精确的操作就可以制出优质饮品, 10 = 需要非常精确的操作才可以制出优质饮品.
 # alcohol: 完美质量的饮品所含有的酒精度(百分数, 会被直接添加到玩家身上, 100意为直接昏迷)
-# lore: List of additional text on the finished brew. (Formatting codes possible: such as &6)
-#   Specific lore for quality possible, using + bad, ++ normal, +++ good, added to the front of the line.
-# servercommands: List of Commands executed by the -Server- when drinking the brew (Can use %player_name%  %quality%)
-# playercommands: List of Commands executed by the -Player- when drinking the brew (Can use %player_name%  %quality%)
-#   Specific Commands for quality possible, using + bad, ++ normal, +++ good, added to the front of the line.
-# drinkmessage: Chat-message to the Player when drinking the Brew
-# drinktitle: Title on Screen to the Player when drinking the Brew
-# customModelData: Custom Model Data Tag. This is a number that can be used to add custom textures to the item.
-#   Can specify one for all, or one for each quality, separated by /
+# lore: 完成酿造后额外的文本列表。（可能的格式化代码：例如 &6）
+#   可以针对品质指定特定的lore，使用 + 差, ++ 普通, +++ 好，加在行的前面。
+# servercommands: 饮用酿造时由服务器执行的一系列命令（可以使用 %player_name% %quality%）
+# playercommands: 饮用酿造时由玩家执行的一系列命令（可以使用 %player_name% %quality%）
+#   可以针对品质指定特定的命令，使用 + 差, ++ 普通, +++ 好，加在行的前面。
+# drinkmessage: 饮用酿造时发送给玩家的聊天信息
+# drinktitle: 饮用酿造时屏幕上显示给玩家的标题
+# glint: 项目是否应该有发光效果（附魔发光）
+# customModelData: 自定义模型数据标签。这是一个数字，可以用来添加自定义纹理到物品上。
+#   可以为所有指定一个，或者为每个品质指定一个，用 / 分隔。
 # effects: 饮用后能够获得的药效的列表. 格式为"药效/强度/时长(秒)".
 #   药效列表: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html
 #   药效强度与时长可以用"-"划分区间, 如: "SPEED/1-2/30-40" = 最劣质情况下的饮品会给予速度1三十秒, 最优质则会给予速度2四十秒.
@@ -861,23 +864,23 @@ useTowny: true
 useBlockLocker: true
 useGMInventories: true
 
-# Use a virtual chest when opening a Barrel to check with all other protection plugins
-# This could confuse Anti-Cheat plugins, but is otherwise good to use
-# use this for 'Residence' Plugin and any others that don't check all cases in the PlayerInteractEvent
+# 在打开桶时使用虚拟箱子来检查所有其他保护插件
+# 这可能会混淆反作弊插件，但除此之外是很好的使用
+# 将此用于 'Residence' 插件和任何其他不在 PlayerInteractEvent 中检查所有情况的插件
 useVirtualChestPerms: false
 
 # 对LogBlock启用方块数据录入[true]
 useLogBlock: true
 
 
-# -- MultiServer/BungeeCord --
-# If Brewery is running on multiple connected Servers (via BungeeCord)
-# a shared Database can be used here to synchronise drunkeness and to be able to use encoded brews between them.
+# -- 多服务器/BungeeCord --
+# 如果 Brewery 在多个连接的服务器上运行（通过 BungeeCord）
+# 可以在这里使用共享数据库来同步醉酒状态，并能够在它们之间使用编码酿造。
 
 multiServerDB:
-  # If using the Database is enabled
+  # 如果允许使用数据库
   enabled: false
-  # If the drunkeness of players should be synchronised between Servers
+  # 如果要在不同服务器之间同步玩家的醉酒状态
   syncDrunkeness: true
   host: localhost
   port: '3306'
@@ -886,12 +889,12 @@ multiServerDB:
   database: base
 
 
-# -- Various Other Settings --
+# -- 各种其他设置 --
 
-# If items in Offhand should be added to the cauldron as well [false]
+# 是否将副手中的物品也添加到大锅中 [false]
 useOffhandForCauldron: false
 
-# If Barrel and Cauldron data can be loaded Async/in the Background [true]
+# 是否可以异步/在后台加载桶和大锅的数据 [true]
 loadDataAsync: true
 
 # 最大玩家下线记忆时长(单位为天). 饮酒的记忆保持时间, 便于计算宿醉.[7]
@@ -902,11 +905,10 @@ colorInBarrels: true
 colorInBrewer: true
 
 # 大型熟成木桶可以通过右击桶身任意一个位置来打开, 而不需要专门右击其龙头. 这一操作对小型酒桶总为真.[true]
-openLargeBarrelEverywhere: false
+openLargeBarrelEverywhere: true
 
-# Allow emptying brews into hoppers to discard brews while keeping the glass bottle [true]
+# 允许将酿造倒入漏斗中以丢弃酿造，同时保留玻璃瓶 [true]
 brewHopperDump: true
-
 
 # -- 口糊设置 --
 
